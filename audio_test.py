@@ -1,10 +1,11 @@
+print("Script started")
 from pydub import AudioSegment
 from pydub.utils import which
 import os
 print("ffmpeg path:", which("ffmpeg"))
 print("Current working directory:", os.getcwd())
 print("Input file exists:", os.path.exists("test1.mp3"))
-print("Script started")
+
 # Load an audio file (can be mp3, wav, etc.)
 audio = AudioSegment.from_file("test1.mp3")  # or "input.wav", etc.
 

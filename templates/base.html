@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPC Bitrate Converter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f8f8f8;
+        }
+        .container {
+            width: 600px;
+            max-width: 90vw;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 40px 40px 40px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .ascii-art {
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            white-space: pre;
+            text-align: center;
+            display: block;
+        }
+        pre {
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+        form, ul, h3 {
+            margin-top: 24px;
+        }
+        button, input[type="file"] {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ascii-art">
++-------------------------------+
+| M | P | C | 2 | 0 | 0 | 0 | x | l |
++---+---+---+---+---+---+---+---+---+
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html> 
