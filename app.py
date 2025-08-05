@@ -4,6 +4,12 @@ import zipfile
 from pydub import AudioSegment
 from flask import Flask, send_file, request, render_template, redirect, flash
 
+# Add ffmpeg to PATH for the Flask process
+ffmpeg_dir = r"C:\ffmpeg\bin"
+current_path = os.environ.get('PATH', '')
+if ffmpeg_dir not in current_path:
+    os.environ['PATH'] = ffmpeg_dir + os.pathsep + current_path
+
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
@@ -43,7 +49,6 @@ def index():
 
     if request.method == 'POST':
 
-
         #clean the folders
         clear_folder('processed_folder')
         clear_folder('unzip_folder')
@@ -58,8 +63,6 @@ def index():
             audio = AudioSegment.from_file(u_upload)
 
             #CONVERT IT FOR MPC2000XL
-
-            
             audio = mpc_audioconvert(audio)
 
             # Export as 16-bit, 44.1kHz WAV
@@ -68,7 +71,6 @@ def index():
 
             #'Success' user feedback
             flash("Successfully processed your audio file")
-
 
             return redirect('/')
 
@@ -93,7 +95,6 @@ def index():
 
             #'Success' user feedback      
             flash("Successfully processed your audio files")
-
 
             return redirect('/')
             
